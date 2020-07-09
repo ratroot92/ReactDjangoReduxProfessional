@@ -1,0 +1,4 @@
+virtualenv test
+git clone https://github.com/justdjango/django_project_boilerplate.git
+pip3 install -r requirement.txt
+pip3 install djangorestframework django-rest-knox

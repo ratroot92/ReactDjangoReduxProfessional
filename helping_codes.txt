@@ -1,0 +1,37 @@
+https://www.youtube.com/watch?v=GieYIzvdt2U
+for react installation
+
+npm init -y
+npm install -D webpack webpack-cli
+npm install -D @babel/core babel-loader @babel/preset-env
+npm install -D @babel/preset-react babel-plugin-transform-class-properties
+npm i react react-dom prop-type
+create a file at package.json
+.babelrc
+add follwoing lines
+{
+    "presets":["@babel/preset-env","@bable/preset-react"],
+    "plugins":["transfrom-class-properties"]
+}
+
+create a new file at same
+webpack.config.js
+add this code
+module.exports = {
+    module: {
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: "babel-loader",
+            },
+        }, ],
+    },
+};
+
+
+in package.json file
+replace "scripts":{
+    "dev":"webpack --mode development ./leadmanager/frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js",
+    "build":"webpack --mode production ./leadmanager/frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js",
+}
